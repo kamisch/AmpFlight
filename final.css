@@ -86,3 +86,8 @@ footer{
  #dropdowns a:hover {background-color: #ddd;}
  
  .show {display: block;}
+
+
+ footer {
+	font-size: 50%
+ }
