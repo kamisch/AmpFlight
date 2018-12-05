@@ -1,4 +1,4 @@
-var root_url = "http://comp426.cs.unc.edu:3001";
+var root_url = "http://comp426.cs.unc.edu:3001/";
 
 // Starting with a login screen 
 $(document).ready(function(){
@@ -8,14 +8,13 @@ $(document).ready(function(){
   let user = $('#user').val();
   let pass = $('#pass').val();
   let login_url = root_url + 'sessions';
+  // let uData =  {"user" :{"username": user,"password": pass}};
 
   $.ajax(login_url, {
-          type: 'GET',
+    url:login_url,
+    type: 'POST',
     xhrFields: {withCredentials:true},
-    data: {
-      username: user,
-      password: pass
-    },
+    data: {"user" :{"username": user,"password": pass}},
 
     // Build home page
     success: (response) =>{
@@ -31,7 +30,7 @@ $(document).ready(function(){
     }
   });
 }); 
-
+});
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -52,6 +51,5 @@ window.onclick = function(event) {
       }
     }
   }
-}
-
+};
 
