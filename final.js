@@ -26,11 +26,11 @@ var logingin = function () {
       },
       data: udata,
       success:function(d, textStatus, jqXHR) {
-        alert("hello");
+        alert("Hello There");
         homePage();
       },
       error: () => {
-        alert('error');
+        alert('Incorrect username or password');
       },
   });
 }
@@ -92,35 +92,31 @@ var homePage = function () {
 
   let main = `
   <div id = "header">
-  <h1 id = 'title'>Welcome to AMPFlight</h1>
-</div>
+    <h1 id = 'title'>Welcome to AMPFlight</h1>
+  </div>
 
-<div id = 'search'>
-  <input type = 'text' placeholder= 'Where do you want to go?'><br>
-</div>
+  <div>
+    <input type = 'text' placeholder= 'Where do you want to go?' id = 'search'><br>
+  </div>
 
-<div id = 'dropdowns'>
-  <button onclick = "dropdownFunction()" class = "dropbtn">Airlines</button>
-  <div id = "dropdown1" class = "dropdown-content">
-  
-  </div> 
+  <div id = 'dropdowns'>
+    <button onclick = "dropdownFunction()" class = "dropbtn">Airlines</button>
+    <div id = "dropdown1" class = "dropdown-content">
+    
+    </div> 
 
-</div>
+  </div>
 
 
-<footer>
-  <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
-</footer> `
+  <footer>
+    <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
+  </footer> `
 
-body.append(main);
-
- 
- 
+  body.append(main);
 
 }
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
+/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
 function dropdownFunction() {
     document.getElementById("dropdown1").classList.toggle("show");
 }
