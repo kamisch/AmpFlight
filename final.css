@@ -1,3 +1,21 @@
 body{
-	Color:red;
+	overflow: hidden;
+	font-size: 20px;
+	font-family: 'Playfair Display', serif;
 }
+
+#header{
+	color:#66fcf1;
+	margin: 0 20%s;
+	width:50%;
+	text-align: center;
+}
+
+#search{
+	color:#c5c6c7;
+}
+
+#dropdowns{
+	color : #45A29E;
+}
+
