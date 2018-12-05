@@ -3,10 +3,10 @@ body{
 	font-size: 20px;
 	font-family: 'Playfair Display', serif;
 	margin: 0;
-	background-color: #3aafa9;
+	background-color: #EF6461;
 }
 #header{
-	color:#feffff;
+	color:#313638;
 	width:100%; 
 	text-align: center; 
 	font-size: 40px;
@@ -24,7 +24,7 @@ h1 {
 
 }
 input[type=text] {
-    background-color: #def2f1;
+    background-color: #E8E9EB;
 	padding: 12px 20px;
 	width: 80%;
     margin:0 10%;
@@ -33,24 +33,29 @@ input[type=text] {
 
 #dropdowns{
 	color : #2b7a79;
+	width:100%;
+	text-align: center;
+
 }
 
+
 #footer{
-	color:#def2f1;
+	color:#E0DFD5;
 }
 
 /* for dropdown */
 .dropbtn {
-	background-color: #3498DB;
+	background-color: #313638;
 	color: white;
 	padding: 16px;
 	font-size: 16px;
 	border: none;
 	cursor: pointer;
+	display: inline-block;
  }
  
  .dropbtn:hover, .dropbtn:focus {
-	background-color: #2980B9;
+	background-color: #1B2F38;
  }
  
  #dropdowns {
@@ -60,9 +65,10 @@ input[type=text] {
  
  #dropdown-content {
 	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
+	background-color: #E0DFD5;
 	min-width: 160px;
+	margin: 0 auto;
+	width:50%;
 	overflow: auto;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
