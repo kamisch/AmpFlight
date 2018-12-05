@@ -39,8 +39,10 @@ input[type=text] {
 }
 
 
-#footer{
+footer{
+	position: absolute;
 	color:#E0DFD5;
+	bottom: 0;
 }
 
 /* for dropdown */
