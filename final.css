@@ -3,19 +3,26 @@ body{
 	font-size: 20px;
 	font-family: 'Playfair Display', serif;
 	margin: 0;
+	background-color: #3aafa9;
 }
 #header{
-	color:#66fcf1;
-	margin: 0 20%s;
-	width:50%;
+	color:#feffff;
+	/* margin: 0 20%s;
+	width:50%; */
 	text-align: center;
+	display: inline-block;
 }
 
 #search{
-	color:#c5c6c7;
+	color:#17252a;
+
 }
 
 #dropdowns{
-	color : #45A29E;
+	color : #2b7a79;
+}
+
+#footer{
+	color:#def2f1;
 }
 
