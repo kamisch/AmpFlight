@@ -53,7 +53,7 @@ input[type=text] {
 	background-color: #2980B9;
  }
  
- .dropdown {
+ #dropdowns {
 	position: relative;
 	display: inline-block;
  }
@@ -75,6 +75,6 @@ input[type=text] {
 	display: block;
  }
  
- .dropdown a:hover {background-color: #ddd;}
+ #dropdowns a:hover {background-color: #ddd;}
  
  .show {display: block;}
