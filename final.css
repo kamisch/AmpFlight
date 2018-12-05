@@ -26,6 +26,17 @@ h1 {
     background-color: #4B9CD3;
     color: white;
 }
+
+#createuser {
+    border-radius: 7px;
+    background-color: white;
+    border: 2px solid #001A57;
+}
+
+#createuser:hover {
+    background-color: #4B9CD3;
+    color: white;
+}
   
   
 #search {
