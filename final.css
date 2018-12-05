@@ -16,19 +16,26 @@ h1 {
 	display: inline-block;
 }
 
-#search{
+#login {
+    border-radius: 7px;
+    background-color: white;
+    border: 2px solid #001A57;
+}
+
+#login:hover {
+    background-color: #4B9CD3;
+    color: white;
+}
+  
+  
+#search {
 	color:#17252a;
 	width: 100%;
-	
-
-
-}
-input[type=text] {
     background-color: #E8E9EB;
 	padding: 12px 20px;
 	width: 80%;
     margin:0 10%;
-	background-image: url('searchicon.png');
+	/* background-image: url('searchicon.png'); */
 }
 
 #dropdowns{
@@ -37,7 +44,6 @@ input[type=text] {
 	text-align: center;
 
 }
-
 
 footer{
 	position: absolute;
