@@ -12,29 +12,32 @@ var logingin = function () {
   let pass = $('#pass').val();
   console.log(user);
   console.log(pass);
+  let udata = {
+    "user": {
+      "username": user,
+      "password": pass
+    }
+  };
   $.ajax(root_url + 'sessions', {
       type: 'POST',
       xhrFields: {
           withCredentials: true
       },
-      data: {
-          "user": {
-            "username": user,
-            "password": pass
-        }
-      },
-      success: (response) => {
-          if (response.status) {
-            alert("it works");
-              // homePage();
-              // xhr.getResponseHeader('Set-Cookie');
-          } else {
-              alert("Login failed. Try again.");
-          }
+      data: udata,
+      success:function(d, textStatus, jqXHR) {
+        alert("hello");
+        // $loginSection.hide();
+        // $dashboardWelcome.html('Hello! You\'re currently logged in as ' + data.user.username + '.');
+        // $status.html('<strong class="text-success">Login successful.</strong>');
+        // $dashboardSection.show();
       },
       error: () => {
-          alert('error');
-      }
+        alert('error');
+      },
+      complete: function(jqXHR, textStatus) {
+        isSubmitting = false;
+        $loginSubmitButton.prop('disabled', false);
+      },
   });
 }
 
