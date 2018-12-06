@@ -5,6 +5,12 @@ body{
 	margin: 0;
 	background-color: #EF6461;
 }
+
+.loginBox {
+	background-color: white;
+	border: 10px, solid, black;
+}
+
 #header{
 	color:#313638;
 	width:100%; 
