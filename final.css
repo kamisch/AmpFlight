@@ -11,7 +11,26 @@ body{
 	text-align: center; 
 	font-size: 40px;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
 
+li {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li:hover {
+    background-color: rgb(70, 70, 70)
+}
 h1 {
 	display: inline-block;
 }
@@ -23,17 +42,6 @@ h1 {
 }
 
 #login:hover {
-    background-color: #4B9CD3;
-    color: white;
-}
-
-#createuser {
-    border-radius: 7px;
-    background-color: white;
-    border: 2px solid #001A57;
-}
-
-#createuser:hover {
     background-color: #4B9CD3;
     color: white;
 }
