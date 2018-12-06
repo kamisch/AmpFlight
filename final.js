@@ -32,10 +32,6 @@ var logingin = function () {
       error: () => {
         alert('error');
       },
-      complete: function(jqXHR, textStatus) {
-        isSubmitting = false;
-        $loginSubmitButton.prop('disabled', false);
-      },
   });
 }
 
@@ -58,13 +54,10 @@ var createUser = function(){
       data: udata,
       success:function(d, textStatus, jqXHR) {
         alert("userCreated");
+        loginPage();
       },
       error: () => {
         alert('error');
-      },
-      complete: function(jqXHR, textStatus) {
-        isSubmitting = false;
-        $loginSubmitButton.prop('disabled', false);
       },
   });
 }
@@ -96,6 +89,30 @@ var homePage = function () {
   </ul>\
   <div id="mesg_div"></div>'.format(localStorage.getItem('username'));
   body.append(navbar);
+
+  let main = `
+  <div id = "header">
+  <h1 id = 'title'>Welcome to AMPFlight</h1>
+</div>
+
+<div id = 'search'>
+  <input type = 'text' placeholder= 'Where do you want to go?'><br>
+</div>
+
+<div id = 'dropdowns'>
+  <button onclick = "dropdownFunction()" class = "dropbtn">Airlines</button>
+  <div id = "dropdown1" class = "dropdown-content">
+  
+  </div> 
+
+</div>
+
+
+<footer>
+  <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
+</footer> `
+
+body.append(main);
 
  
  
