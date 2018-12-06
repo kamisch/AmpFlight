@@ -16,7 +16,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #17252a;
 }
 
 li {
@@ -38,13 +38,25 @@ h1 {
 #login {
     border-radius: 7px;
     background-color: white;
-    border: 2px solid #001A57;
+    border: 2px solid #17252a;
 }
 
 #login:hover {
     background-color: #4B9CD3;
     color: white;
 }
+
+#createUser {
+    border-radius: 7px;
+    background-color: white;
+    border: 2px solid #17252a;
+}
+
+#createUser:hover {
+    background-color: #4B9CD3;
+    color: white;
+}
+
   
   
 #search {
@@ -73,7 +85,7 @@ footer{
 
 /* for dropdown */
 .dropbtn {
-	background-color: #313638;
+	background-color: #17252a;
 	color: white;
 	padding: 16px;
 	font-size: 16px;
