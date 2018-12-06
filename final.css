@@ -6,11 +6,14 @@ body{
 	background-color: #EF6461;
 }
 
-.loginBox {
+#loginBox {
 	background-color: white;
 	border: 10px solid black;
-	margin: 200px 450px 450px;
+	margin-top: 10%;
+	margin-right: 40%;
+	margin-left: 40%;
 	text-align: center;
+	position: relative;
 }
 
 #header{

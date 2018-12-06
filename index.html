@@ -12,21 +12,26 @@
     </head>
 
     <body>
-        <div class = 'loginBox'>
-            <h3>Login</h3><br>
-        
-            <div class = 'authentication'>
-                Name:  <input type = "text" id = "user"><br>
-                Password: <input type = "password" id = "pass"><br>
-            </div>
-        
-            <br> 
+        <div id = 'login-container'>
+
+            <div id = 'loginBox'>
+                <h3 id = 'loginTitle'>Login</h3><br>
             
-            <button id = 'login' onclick="logingin()">Login</button>
-            <button id = 'createUser' onclick="createUser()">New User</button>
-            <br>
-            <br>
-            <br>
+                <div class = 'authentication'>
+                    <input type = "text" id = "user" placeholder = "Username"><br>
+                    <input type = "password" id = "pass" placeholder = "Password"><br>
+                </div>
+            
+                <br> 
+
+                <div class = 'loginBtns'>
+                    <button id = 'login' onclick="logingin()">Login</button>
+                    <button id = 'createUser' onclick="createUser()">New User</button>
+                </div>
+
+                <br>
+                <br>
+            </div>
         </div>
 
 
