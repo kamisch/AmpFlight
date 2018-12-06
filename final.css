@@ -44,9 +44,9 @@ h1 {
 }
 
 #login {
-    border-radius: 7px;
+	color: white;
+    border-radius: 12px;
     background-color: #EF6461;
-    border: 1px solid #17252a;
 }
 
 #login:hover {
@@ -55,9 +55,9 @@ h1 {
 }
 
 #createUser {
-    border-radius: 7px;
+	color: white;
+    border-radius: 12px;
     background-color: #EF6461;
-    border: 1px solid #17252a;
 }
 
 #createUser:hover {
