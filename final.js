@@ -74,15 +74,27 @@ var loginPage = function () {
   let body = $('body');
 
   body.empty();
-  let mainHtml = ` <h3>Login</h3><br>
+  let mainHtml = 
+  `<div id = 'login-container'>
+    <div id = 'loginBox'>
+        <h3 id = 'loginTitle'>Login</h3><br>
     
-  <div class = 'authentication'>
-      Name:  <input type = "text" id = "user"><br>
-      Password: <input type = "password" id = "pass"><br>
-  </div>
+        <div class = 'authentication'>
+            <input type = "text" id = "user" placeholder = "Username"><br>
+            <input type = "password" id = "pass" placeholder = "Password"><br>
+        </div>
+    
+        <br> 
 
-  <button id = 'login' onclick="logingin()">Login</button>
-  <button id = 'createUser' onclick="createUser()">New User</button>`
+        <div class = 'loginBtns'>
+            <button id = 'login' onclick="logingin()">Login</button><br>
+            <button id = 'createUser' onclick="createUser()">New User</button>
+        </div>
+
+        <br>
+        <br>
+    </div>
+  </div> `
   body.append(mainHtml);
 }
 
