@@ -11,9 +11,6 @@ String.prototype.format = function () {
     return typeof args[i] != 'undefined' ? args[i++] : '';
   });
 };
-$(document).ready(function(){
-  
-});
 // Starting with a login screen 
 var logingin = function () {
   let user = $('#user').val();
@@ -35,7 +32,7 @@ var logingin = function () {
     data: udata,
     success: function (d, textStatus, jqXHR) {
       // alert("Hello There");
-      homePage();
+      loadDB();
     },
     error: () => {
       alert('Incorrect username or password');
@@ -74,36 +71,35 @@ var loginPage = function () {
   let body = $('body');
 
   body.empty();
-  let mainHtml = 
-  `<div id = 'login-container'>
-    <div id = 'loginBox'>
-        <h3 id = 'loginTitle'>Login</h3><br>
-    
-        <div class = 'authentication'>
-            <input type = "text" id = "user" placeholder = "Username"><br>
-            <input type = "password" id = "pass" placeholder = "Password"><br>
-        </div>
-    
-        <br> 
+  let mainHtml = ` <div id = 'login-container'>
+  <div id = 'loginBox'>
+      <h3 id = 'loginTitle'>Login</h3><br>
+  
+      <div class = 'authentication'>
+          <input type = "text" id = "user" placeholder = "Username"><br>
+          <input type = "password" id = "pass" placeholder = "Password"><br>
+      </div>
+  
+      <br> 
 
-        <div class = 'loginBtns'>
-            <button id = 'login' onclick="logingin()">Login</button><br>
-            <button id = 'createUser' onclick="createUser()">New User</button>
-        </div>
+      <div class = 'loginBtns'>
+          <button id = 'login' onclick="logingin()">Login</button><br>
+          <button id = 'createUser' onclick="createUser()">New User</button>
+      </div>
 
-        <br>
-        <br>
-    </div>
-  </div> `
+      <br>
+      <br>
+  </div>
+</div> `
   body.append(mainHtml);
 }
 
 var homePage = function () {
-  let data = loadDB();
-  airline_data = data[0];
-  airport_data = data[1];
-  flight_data = data[2];
-  ticket_data = data[3];
+  // let data = loadDB();
+  // airline_data = data[0];
+  // airport_data = data[1];
+  // flight_data = data[2];
+  // ticket_data = data[3];
   console.log(airport_data);
   console.log(airline_data);
   console.log(flight_data);
@@ -152,47 +148,10 @@ var tabClick = function () {
 }
 
 var loadDB = function () {
-  let airline;
+  let airline = '';
   let airport;
   let flight;
   let ticket;
-  $.ajax(root_url + 'airlines', {
-    type: 'GET',
-    xhrFields: {
-      withCredentials: true
-    },
-    success: (response) => {
-      // console.log(response);
-      airline = response;
-    },
-    error: () => {
-      alert('Incorrect username or password');
-    },
-  });
-  $.ajax(root_url + 'airports', {
-    type: 'GET',
-    xhrFields: {
-      withCredentials: true
-    },
-    success: (response) => {
-      airport = response;
-    },
-    error: () => {
-      alert('Incorrect username or password');
-    },
-  });
-  $.ajax(root_url + 'flights', {
-    type: 'GET',
-    xhrFields: {
-      withCredentials: true
-    },
-    success: (response) => {
-      flight = response;
-    },
-    error: () => {
-      alert('Incorrect username or password');
-    },
-  });
   $.ajax(root_url + 'tickets', {
     type: 'GET',
     xhrFields: {
@@ -205,9 +164,10 @@ var loadDB = function () {
       alert('Incorrect username or password');
     },
   });
-  console.log(airline);
-  return [airline, airport, flight, ticket];
-}
+  // console.log(airline);
+  homePage();
+};
+
 
 /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
 function dropdownFunction() {
