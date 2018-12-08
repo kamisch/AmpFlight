@@ -1,8 +1,8 @@
 var root_url = "http://comp426.cs.unc.edu:3001/";
-var airline_data;
-var airport_data;
-var flight_data;
-var ticket_data;
+// var airline_data;
+// var airport_data;
+// var flight_data;
+// var ticket_data;
 
 String.prototype.format = function () {
   var i = 0,
@@ -32,7 +32,7 @@ var logingin = function () {
     data: udata,
     success: function (d, textStatus, jqXHR) {
       // alert("Hello There");
-      loadDB();
+      homePage();
     },
     error: () => {
       alert('Incorrect username or password');
@@ -95,28 +95,18 @@ var loginPage = function () {
 }
 
 var homePage = function () {
-  // let data = loadDB();
-  // airline_data = data[0];
-  // airport_data = data[1];
-  // flight_data = data[2];
-  // ticket_data = data[3];
-  console.log(airport_data);
-  console.log(airline_data);
-  console.log(flight_data);
-  console.log(ticket_data);
-
   let body = $('body');
   body.empty();
   let navbar = '<ul> \
-  <li id = "logout_btn">Logout</li>\
-  <li style="float:right">{}</li>\
+  <li id = "logout_btn" class = "navTag" >Logout</li>\
+  <li id = "user_info" class = "navTag" style="float:right">{}</li>\
   </ul>\
   <div id="mesg_div"></div>'.format(localStorage.getItem('username'));
   body.append(navbar);
 
   let main = `
   <div id = "header">
-    <h1 id = 'title'>Welcome to AMPFlight</h1>
+    <h1 id = 'title'>AmpFlight</h1>
   </div>
 
   <div>
@@ -124,7 +114,7 @@ var homePage = function () {
   </div>
 
   <div id = 'dropdowns'>
-    <button onclick = "dropdownFunction()" class = "dropbtn">Airlines</button>
+
     <div id = "dropdown1" class = "dropdown-content">
     </div> 
 
@@ -132,8 +122,17 @@ var homePage = function () {
   <footer>
     <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
   </footer> `
-
   body.append(main);
+  // add filter buttons
+  let airlines = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airlines</button>'.format("'airlines'"));
+  let airports = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airports</button>'.format("'airports'"));
+  let flights = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Flights</button>'.format("'flights'"));
+  let tickets = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Tickets</button>'.format("'tickets'"));
+
+  $('#dropdowns').append(airlines);
+  $('#dropdowns').append(airports);
+  $('#dropdowns').append(flights);
+  $('#dropdowns').append(tickets); 
   tabClick();
 
 }
@@ -147,30 +146,51 @@ var tabClick = function () {
   });
 }
 
-var loadDB = function () {
-  let airline = '';
-  let airport;
-  let flight;
-  let ticket;
-  $.ajax(root_url + 'tickets', {
+/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+function dropdownFunction(keyword) {
+  $.ajax(root_url + keyword, {
     type: 'GET',
     xhrFields: {
       withCredentials: true
     },
     success: (response) => {
-      ticket = response;
+      if (keyword == "airlines"){
+        $('#dropdown1').empty();
+        let nameArr = [];
+        response.forEach(element => {
+          let name = element['name'];
+          if (!nameArr.includes(name)){
+            nameArr.push(name);
+          }
+        });
+        nameArr.sort();
+        nameArr.forEach(element => {
+          $('#dropdown1').append($('<li class = "dropdownEl">{}</li>'.format(element)));
+        })
+
+      }else if (keyword == "airports"){
+        $('#dropdown1').empty();
+        let nameArr = [];
+        response.forEach(element => {
+          let name = element['name'];
+          if (!nameArr.includes(name)){
+            nameArr.push(name);
+          }
+        });
+        nameArr.sort();
+        nameArr.forEach(element => {
+          $('#dropdown1').append($('<li class = "dropdownEl">{}</li>'.format(element)));
+        })
+      }else if (keyword == "flights"){
+
+      }else if (keyword == "tickets"){
+        
+      }
     },
     error: () => {
       alert('Incorrect username or password');
     },
   });
-  // console.log(airline);
-  homePage();
-};
-
-
-/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
-function dropdownFunction() {
   document.getElementById("dropdown1").classList.toggle("show");
 }
 
