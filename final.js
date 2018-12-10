@@ -164,7 +164,23 @@ var resultPage = function (filter, text) {
 
   body.append(main);
   document.getElementById('searchResults').append(text);
-
+  let gUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyAEpzx08RL5PLViQKt_7JSWKrT274B0nzg';
+  // $.ajax(gUrl, {
+  //   type: 'GET',
+  //   dataType: 'jsonp',
+  //   xhrFields: {
+  //     withCredentials: true
+  //   },
+  //   success: (response) => {
+  //     if (response.status) {
+  //       console.log(response);
+  //     }
+  //     // alert("Hello There");
+  //   },
+  //   error: () => {
+  //     alert('api calls');
+  //   },
+  // });
   tabClick();
 
 }
@@ -246,7 +262,6 @@ window.onclick = function (event) {
     $('#search').keyup(function (event) {
       if (event.keyCode === 13) {
         let filterData = '';
-        alert($('#search').val());
         resultPage(filterData,$('#search').val());
       }
     })
