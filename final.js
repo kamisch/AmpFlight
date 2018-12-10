@@ -140,8 +140,8 @@ var homePage = function () {
   $('#dropdowns').append(flights);
   $('#dropdowns').append(tickets);
 
-  $('#header').fadeIn(3000);
-  $('#header').fadeOut(3000);
+  $('#header').fadeIn(2000);
+  $('#header').fadeOut(2000);
   
   tabClick();
 
@@ -172,7 +172,7 @@ var resultPage = function (filter, text) {
 
   body.append(main);
 
-  document.getElementById('searchResults').append('your destination' + text);
+  document.getElementById('searchResults').append('your destination ' + text);
   let address = $('#address').val();
   let destination = text;
 
