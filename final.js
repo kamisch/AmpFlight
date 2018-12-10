@@ -234,7 +234,18 @@ function dropdownFunction(keyword) {
           $('#dropdown1').append($('<li class = "dropdownEl airportEl">{}</li>'.format(element)));
         })
       } else if (keyword == "flights") {
-
+        $('#dropdown1').empty();
+        let departArr = [];
+        response.forEach(element => {
+          let departing = element['departs_at'];
+          if (!departArr.includes(departing)) {
+            departArr.push(departing);
+          }
+        });
+        departArr.sort();
+        departArr.forEach(element => {
+          $('#dropdown1').append($('<li class = "dropdownEl ticketEl">{}</li>'.format(element)));
+        })
       } 
     },
     error: () => {
