@@ -98,6 +98,7 @@ var homePage = function () {
   let body = $('body');
   body.empty();
   let navbar = '<ul> \
+  <li id = "home_btn" class = "navTag" >Home</li>\
   <li id = "logout_btn" class = "navTag" >Logout</li>\
   <li id = "user_info" class = "navTag" style="float:right">{}</li>\
   </ul>\
@@ -110,7 +111,8 @@ var homePage = function () {
   </div>
 
   <div>
-    <input type = 'text' placeholder= 'Where do you want to go?' id = 'search'><br>
+    <input type = 'text' placeholder= 'Where do you want to go?' id = 'search'>
+    <br>
   </div>
 
   <div id = 'dropdowns'>
@@ -132,7 +134,37 @@ var homePage = function () {
   $('#dropdowns').append(airlines);
   $('#dropdowns').append(airports);
   $('#dropdowns').append(flights);
-  $('#dropdowns').append(tickets); 
+  $('#dropdowns').append(tickets);
+  tabClick();
+
+}
+
+var resultPage = function (filter, text) {
+  let body = $('body');
+  body.empty();
+  let navbar = '<ul> \
+  <li id = "home_btn" class = "navTag" >Home</li>\
+  <li id = "logout_btn" class = "navTag" >Logout</li>\
+  <li id = "user_info" class = "navTag" style="float:right">{}</li>\
+  </ul>\
+  <div id="mesg_div"></div>'.format(localStorage.getItem('username'));
+  body.append(navbar);
+
+  let main = `
+  <div id = "mp">
+  <input type = 'text' placeholder= 'Your current location?' id = 'address'>
+  <p>google map will be displayed here</p>
+  <label>Calculate estimated travel time</label><button id = "calculate_t">Go</button>
+  </div>
+
+  <div id = "searchResults">
+  <p>placeholder, but later this will get populated by search and filtering results</p>
+  </div>
+  `;
+
+  body.append(main);
+  document.getElementById('searchResults').append(text);
+
   tabClick();
 
 }
@@ -142,6 +174,9 @@ var tabClick = function () {
     let tabId = $(this).attr('id');
     if (tabId == "logout_btn") {
       loginPage();
+    } else if (tabId == "home_btn") {
+      console.log("homepage");
+      homePage();
     }
   });
 }
@@ -154,12 +189,12 @@ function dropdownFunction(keyword) {
       withCredentials: true
     },
     success: (response) => {
-      if (keyword == "airlines"){
+      if (keyword == "airlines") {
         $('#dropdown1').empty();
         let nameArr = [];
         response.forEach(element => {
           let name = element['name'];
-          if (!nameArr.includes(name)){
+          if (!nameArr.includes(name)) {
             nameArr.push(name);
           }
         });
@@ -168,12 +203,12 @@ function dropdownFunction(keyword) {
           $('#dropdown1').append($('<li class = "dropdownEl airlineEl">{}</li>'.format(element)));
         })
 
-      }else if (keyword == "airports"){
+      } else if (keyword == "airports") {
         $('#dropdown1').empty();
         let nameArr = [];
         response.forEach(element => {
           let name = element['name'];
-          if (!nameArr.includes(name)){
+          if (!nameArr.includes(name)) {
             nameArr.push(name);
           }
         });
@@ -181,10 +216,10 @@ function dropdownFunction(keyword) {
         nameArr.forEach(element => {
           $('#dropdown1').append($('<li class = "dropdownEl airportEl">{}</li>'.format(element)));
         })
-      }else if (keyword == "flights"){
+      } else if (keyword == "flights") {
 
-      }else if (keyword == "tickets"){
-        
+      } else if (keyword == "tickets") {
+
       }
     },
     error: () => {
@@ -192,24 +227,30 @@ function dropdownFunction(keyword) {
     },
   });
 
-  
+
 }
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (event) {
   if (event.target.matches('.dropbtn')) {
-    let menu =  document.getElementById("dropdown1");
-    if (!menu.classList.contains('show')){
+    let menu = document.getElementById("dropdown1");
+    if (!menu.classList.contains('show')) {
       menu.classList.toggle('show');
     }
-    
-  } else if (event.target.matches('.airlineEl')){
-    console.log("element clicked");
-  } else if (event.target.matches('.airportEl')){
-    console.log("element ap clicked");
 
-  }
-  else {
+  } else if (event.target.matches('.airlineEl')) {
+    console.log("element clicked");
+  } else if (event.target.matches('.airportEl')) {
+    console.log("element ap clicked");
+  } else if (event.target.matches('#search')) {
+    $('#search').keyup(function (event) {
+      if (event.keyCode === 13) {
+        let filterData = '';
+        alert($('#search').val());
+        resultPage(filterData,$('#search').val());
+      }
+    })
+  } else {
     let dropdowns = document.getElementsByClassName("dropdown-content");
     let i;
     for (i = 0; i < dropdowns.length; i++) {
