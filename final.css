@@ -28,6 +28,13 @@ body{
 	font-size: 40px;
 }
 
+#welcome{
+	color: white;
+	font-size: 50px;
+	text-align: center;
+	display: none;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
