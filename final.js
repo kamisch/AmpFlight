@@ -107,9 +107,10 @@ var homePage = function () {
 
   let main = `
   <div id = "header">
-    <h1 id = 'title'>AmpFlight</h1>
+    <h1 id = 'title'>Welcome to AmpFlight</h1>
   </div>
 
+  <div id = "home-container">
   <div>
     <input type = 'text' placeholder= 'Where do you want to go?' id = 'search'>
     <br>
@@ -121,9 +122,11 @@ var homePage = function () {
     </div> 
 
   </div>
+  </div>
   <footer>
     <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
   </footer> `
+  
   body.append(main);
 
   // add filter buttons
@@ -137,8 +140,9 @@ var homePage = function () {
   $('#dropdowns').append(flights);
   $('#dropdowns').append(tickets);
 
-  $('#header').fadeIn(5000);
-  $('#header').fadeOut(5000);
+  $('#header').fadeIn(3000);
+  $('#header').fadeOut(3000);
+  
   tabClick();
 
 }
