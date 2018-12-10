@@ -165,7 +165,7 @@ function dropdownFunction(keyword) {
         });
         nameArr.sort();
         nameArr.forEach(element => {
-          $('#dropdown1').append($('<li class = "dropdownEl">{}</li>'.format(element)));
+          $('#dropdown1').append($('<li class = "dropdownEl airlineEl">{}</li>'.format(element)));
         })
 
       }else if (keyword == "airports"){
@@ -179,7 +179,7 @@ function dropdownFunction(keyword) {
         });
         nameArr.sort();
         nameArr.forEach(element => {
-          $('#dropdown1').append($('<li class = "dropdownEl">{}</li>'.format(element)));
+          $('#dropdown1').append($('<li class = "dropdownEl airportEl">{}</li>'.format(element)));
         })
       }else if (keyword == "flights"){
 
@@ -191,17 +191,29 @@ function dropdownFunction(keyword) {
       alert('Incorrect username or password');
     },
   });
-  document.getElementById("dropdown1").classList.toggle("show");
+
+  
 }
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (event) {
-  if (!event.target.matches('.dropbtn')) {
+  if (event.target.matches('.dropbtn')) {
+    let menu =  document.getElementById("dropdown1");
+    if (!menu.classList.contains('show')){
+      menu.classList.toggle('show');
+    }
+    
+  } else if (event.target.matches('.airlineEl')){
+    console.log("element clicked");
+  } else if (event.target.matches('.airportEl')){
+    console.log("element ap clicked");
 
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
+  }
+  else {
+    let dropdowns = document.getElementsByClassName("dropdown-content");
+    let i;
     for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
+      let openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
         openDropdown.classList.remove('show');
       }
