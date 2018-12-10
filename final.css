@@ -88,8 +88,10 @@ h1 {
 }
 
 #login:hover {
-    background-color: #4B9CD3;
-    color: white;
+    background-color: white;
+	color: black;
+	border: thin solid black;
+	box-shadow: 2px 2px rgb(90, 89, 89);
 }
 
 #createUser {
@@ -101,8 +103,10 @@ h1 {
 }
 
 #createUser:hover {
-    background-color: #4B9CD3;
-    color: white;
+    background-color: white;
+	color: black;
+	border: thin solid black;
+	box-shadow: 2px 2px rgb(90, 89, 89);
 }
 
   
@@ -116,6 +120,15 @@ h1 {
     margin:0 10%;
 	/* background-image: url('searchicon.png'); */
 }
+
+#address {
+	color:#17252a;
+	width: 100%;
+    background-color: #E8E9EB;
+	padding: 12px 20px;
+	width: 80%;
+    margin:0 10%;
+} 
 
 #dropdowns{
 	color : #2b7a79;
