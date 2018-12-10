@@ -133,12 +133,10 @@ var homePage = function () {
   let airlines = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airlines</button>'.format("'airlines'"));
   let airports = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airports</button>'.format("'airports'"));
   let flights = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Flights</button>'.format("'flights'"));
-  let tickets = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Tickets</button>'.format("'tickets'"));
 
   $('#dropdowns').append(airlines);
   $('#dropdowns').append(airports);
   $('#dropdowns').append(flights);
-  $('#dropdowns').append(tickets);
 
   $('#header').fadeIn(2000);
   $('#header').fadeOut(2000);
@@ -237,9 +235,7 @@ function dropdownFunction(keyword) {
         })
       } else if (keyword == "flights") {
 
-      } else if (keyword == "tickets") {
-
-      }
+      } 
     },
     error: () => {
       alert('Incorrect username or password');
