@@ -125,6 +125,7 @@ var homePage = function () {
     <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
   </footer> `
   body.append(main);
+
   // add filter buttons
   let airlines = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airlines</button>'.format("'airlines'"));
   let airports = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airports</button>'.format("'airports'"));
@@ -135,6 +136,9 @@ var homePage = function () {
   $('#dropdowns').append(airports);
   $('#dropdowns').append(flights);
   $('#dropdowns').append(tickets);
+
+  $('#header').fadeIn(5000);
+  $('#header').fadeOut(5000);
   tabClick();
 
 }
@@ -163,24 +167,29 @@ var resultPage = function (filter, text) {
   `;
 
   body.append(main);
-  document.getElementById('searchResults').append(text);
-  let gUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyAEpzx08RL5PLViQKt_7JSWKrT274B0nzg';
-  // $.ajax(gUrl, {
-  //   type: 'GET',
-  //   dataType: 'jsonp',
-  //   xhrFields: {
-  //     withCredentials: true
-  //   },
-  //   success: (response) => {
-  //     if (response.status) {
-  //       console.log(response);
-  //     }
-  //     // alert("Hello There");
-  //   },
-  //   error: () => {
-  //     alert('api calls');
-  //   },
-  // });
+
+  document.getElementById('searchResults').append('your destination' + text);
+  let address = $('#address').val();
+  let destination = text;
+
+  let gUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyAEpzx08RL5PLViQKt_7JSWKrT274B0nzg'.format();
+  var distanceService = new google.maps.DistanceMatrixService();
+    distanceService.getDistanceMatrix({
+        origins: ['Istanbul, Turkey'],
+        destinations: ['Ankara, Turkey'],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        durationInTraffic: true,
+        avoidHighways: false,
+        avoidTolls: false
+    },
+    function (response, status) {
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+            console.log('Error:', status);
+        } else {
+            console.log(response);
+        }
+    });
   tabClick();
 
 }
@@ -262,7 +271,7 @@ window.onclick = function (event) {
     $('#search').keyup(function (event) {
       if (event.keyCode === 13) {
         let filterData = '';
-        resultPage(filterData,$('#search').val());
+        resultPage(filterData, $('#search').val());
       }
     })
   } else {
