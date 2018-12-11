@@ -23,13 +23,19 @@ body{
 
 
 #ticketBox {
-	background-color: white;
+	background: white url('https://img.icons8.com/ios/100/000000/barcode.png') bottom center no-repeat;
 	border: 6px solid black;
+	margin-top: 5%;
 	margin-right: 40%;
 	margin-left: 40%;
 	text-align: center;
 	position: relative;
 	box-shadow: 5px 5px rgb(90, 89, 89);
+}
+
+#ticket-container {
+	overflow-y: scroll;
+	height: 500px;
 }
 
 #ticketTitle {
