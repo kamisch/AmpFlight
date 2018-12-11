@@ -1,7 +1,7 @@
 var root_url = "http://comp426.cs.unc.edu:3001/";
-// var airline_data;
-// var airport_data;
-// var flight_data;
+var airline_data;
+var airport_data;
+var flight_data;
 // var ticket_data;
 
 
@@ -331,15 +331,26 @@ window.onclick = function (event) {
     }
 
   } else if (event.target.matches('.airlineEl')) {
-    console.log("element clicked");
+    let selected = $(event.target).text()
+    console.log(selected);
+    airline_data = $('#airlineFilter');
+    airline_data.remove();
+    airline_data = $('<div id = "airlineFilter">{}</div>'.format(selected));
+    $('body').append(airline_data);
   } else if (event.target.matches('.airportEl')) {
-    console.log("element ap clicked");
+    let selected = $(event.target).text()
+    console.log(selected);
+    airport_data = $('#airportFilter');
+    airport_data.remove();
+    airport_data = $('<div id = "airportFilter">{}</div>'.format(selected));
+    $('body').append(airport_data);
   } else if (event.target.matches('.ticketEl')) {
     console.log("element ap clicked");
   } else if (event.target.matches('#search')) {
     $('#search').keydown(function (event) {
       // if (event.keyCode === 13) {
         $(".dropdownEl").each(function(){
+          console.log('search');
           let dropdownText = $(this).text().toLowerCase();
           let searchText = $('#search').val().toLowerCase();
           if($("#search").val() === "" ){
