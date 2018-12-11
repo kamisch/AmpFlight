@@ -169,8 +169,8 @@ var homePage = function () {
   $('#dropdowns').append(airports);
   $('#dropdowns').append(flights);
 
-  $('#header').fadeIn(2000);
-  $('#header').fadeOut(2000);
+  $('#header').fadeIn(1500);
+  $('#header').fadeOut(1500);
   
   tabClick();
 
@@ -248,7 +248,8 @@ function dropdownFunction(keyword) {
         });
         nameArr.sort();
         nameArr.forEach(element => {
-          $('#dropdown1').append($('<li class = "dropdownEl airlineEl">{}</li>'.format(element)));
+        $('#dropdown1').append($('<li class = "dropdownEl airlineEl">{}</li>'.format(element)));
+        $('#search').fadeIn(1000);
         })
 
       } else if (keyword == "airports") {
@@ -262,7 +263,8 @@ function dropdownFunction(keyword) {
         });
         nameArr.sort();
         nameArr.forEach(element => {
-          $('#dropdown1').append($('<li class = "dropdownEl airportEl">{}</li>'.format(element)));
+        $('#dropdown1').append($('<li class = "dropdownEl airportEl">{}</li>'.format(element)));
+        $('#search').fadeIn(1000);
         })
       } else if (keyword == "flights") {
         $('#dropdown1').empty();
@@ -275,7 +277,8 @@ function dropdownFunction(keyword) {
         });
         departArr.sort();
         departArr.forEach(element => {
-          $('#dropdown1').append($('<li class = "dropdownEl ticketEl">{}</li>'.format(element)));
+        $('#dropdown1').append($('<li class = "dropdownEl ticketEl">{}</li>'.format(element)));
+        $('#search').fadeIn(1000);
         })
       } 
     },
@@ -283,6 +286,8 @@ function dropdownFunction(keyword) {
       alert('Incorrect username or password');
     },
   });
+
+
 
 
 }
@@ -320,4 +325,6 @@ window.onclick = function (event) {
       }
     }
   }
+  $('#search').fadeOut(1000);
+
 };
