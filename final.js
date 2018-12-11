@@ -213,7 +213,6 @@ var resultPage = function (filter, text) {
 
   body.append(main);
 
-  document.getElementById('searchResults').append('your destination ' + text);
 
   tabClick();
 
