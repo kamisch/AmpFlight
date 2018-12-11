@@ -211,17 +211,19 @@ footer{
 
 /* for dropdown */
 .dropbtn {
-	background-color: #17252a;
+	background-color: black;
 	color: white;
+	border: thin solid black;
 	padding: 16px;
 	font-size: 16px;
-	border: none;
 	cursor: pointer;
 	display: inline-block;
  }
  
  .dropbtn:hover, .dropbtn:focus {
-	background-color: #1B2F38;
+	background-color: white;
+	color: #EF6461;
+	box-shadow: 2px 2px rgb(90, 89, 89);
  }
  
  #dropdowns {
