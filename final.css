@@ -62,24 +62,33 @@ h1 {
 	display: inline-block;
 }
 
-#user {
+.loginInput {
 	border: none;
 	border-bottom: 2px solid black;
 	width: 80%;
 	height: 30px;
+}
+
+#user {
 	background:url(https://img.icons8.com/metro/20/000000/guest-male.png) right center no-repeat;
 }
 
 #pass {
-	border: none;
-	border-bottom: 2px solid black;
-	width: 80%;
-	height: 30px;
 	background:url(https://img.icons8.com/ios/20/000000/lock.png) right center no-repeat;
+}
+
+#oldpass {
+	background:url(https://img.icons8.com/ios/20/000000/lock.png) right center no-repeat;
+
+}
+
+#newpass {
+	background:url(https://img.icons8.com/ios/20/000000/lock.png) right center no-repeat;
+
 }
 	
 
-#login {
+.btn {
 	color: white;
     border-radius: 12px;
 	background-color: #EF6461;
@@ -87,27 +96,14 @@ h1 {
 	height: 30px;
 }
 
-#login:hover {
+.btn:hover {
     background-color: white;
 	color: black;
 	border: thin solid black;
 	box-shadow: 2px 2px rgb(90, 89, 89);
 }
 
-#changeUser {
-	color: white;
-    border-radius: 12px;
-	background-color: #EF6461;
-	width: 80%;
-	height: 30px;
-}
 
-#changeUser:hover {
-    background-color: white;
-	color: black;
-	border: thin solid black;
-	box-shadow: 2px 2px rgb(90, 89, 89);
-}
 
   
   

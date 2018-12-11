@@ -80,17 +80,17 @@ var passwordPage = function () {
       <h3 id = 'loginTitle'>Login</h3><br>
   
       <div class = 'authentication'>
-          <input type = "text" id = "user" placeholder = "Username"><br>
-          <input type = "password" id = "oldpass" placeholder = "Old Password"><br>
-          <input type = "password" id = "newpass" placeholder = "New Password"><br>
+          <input type = "text" id = "user" class = loginInput placeholder = "Username"><br>
+          <input type = "password" id = "oldpass" class = loginInput placeholder = "Old Password"><br>
+          <input type = "password" id = "newpass" class = loginInput placeholder = "New Password"><br>
 
       </div>
   
       <br> 
 
       <div class = 'loginBtns'>
-          <button id = 'changeUser' onclick="changeUser()">Change Password</button>
-          <button onclick="loginPage()">Back to Login</button>
+          <button class = "btn" onclick="changeUser()">Change Password</button>
+          <button class = "btn" onclick="loginPage()">Back to Login</button>
 
       </div>
 
@@ -109,15 +109,15 @@ var loginPage = function () {
       <h3 id = 'loginTitle'>Login</h3><br>
   
       <div class = 'authentication'>
-          <input type = "text" id = "user" placeholder = "Username"><br>
-          <input type = "password" id = "pass" placeholder = "Password"><br>
+          <input type = "text" id = "user" class = loginInput placeholder = "Username"><br>
+          <input type = "password" id = "pass" class = loginInput placeholder = "Password"><br>
       </div>
   
       <br> 
 
       <div class = 'loginBtns'>
-          <button id = 'login' onclick="logingin()">Login</button><br>
-          <button id = 'changeUser' onclick="passwordPage()">Change Password</button>
+          <button id = 'login' class = "btn" onclick="logingin()">Login</button><br>
+          <button id = 'changeUser' class = "btn" onclick="passwordPage()">Change Password</button>
       </div>
 
       <br>
