@@ -4,6 +4,8 @@ var airport_data;
 var flight_data;
 var fname;
 var lname;
+var age;
+var gender;
 // var ticket_data;
 
 
@@ -186,6 +188,9 @@ var homePage = function () {
 
   fname =  $("<input type = 'text' placeholder= 'first name' id = 'fname'>");
   lname = $("<input type = 'text' placeholder= 'last name' id = 'lname'>");
+  age = $("<input type = 'text' placeholder= 'last name' id = 'lname'>");
+  gender = $("<input type = 'text' placeholder= 'last name' id = 'lname'>");
+
 
   body.append(fname);
   body.append(lname);
@@ -194,69 +199,77 @@ var homePage = function () {
 
 }
 
-var resultPage = function (fname,lname,airline,airport,flight) {
+var resultPage = function (fname,lname,age,gender,airline,airport,flight) {
   console.log(fname,lname,airline,airport,flight);
-  let body = $('body');
-  body.empty();
-  let navbar = '<ul> \
-  <li id = "home_btn" class = "navTag" >Home</li>\
-  <li id = "logout_btn" class = "navTag" >Logout</li>\
-  <li id = "user_info" class = "navTag" style="float:right">{}</li>\
-  </ul>\
-  <div id="mesg_div"></div>'.format(localStorage.getItem('username'));
-  body.append(navbar);
-
-  let main = `
-  <div id='ticket-container'>
-
-    <div id='ticketBox'>
-      <h3 id='ticketTitle'>Ticket</h3>
-
-      <div class='ticketInfo'>
-          <p>Passenger:</p>
-          <p>{}</p>
-          <p>{}</p>
-          <p>Aiport: {}</p>
-          <p>Airline: {}</p>
-          <p>Departure: {}</p>
-      </div>
-
-      <br>
-      <br>
-
-    </div>
-
-    <input type="button" id = "printBtn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
-  </div>`.format(fname,lname,airport,airline,flight);
-
-  body.append(main);
-
-  localStorage.setItem('fname',fname);
-  localStorage.setItem('lname',lname);
-  localStorage.setItem('airport',airport);
-  localStorage.setItem('airline',airline);
-  localStorage.setItem('flight',flight);
-
+ 
+  let info ="Flight from {} by {} at {} ".format(airport,airline,flight);
   let udata = {
     "ticket": {
       "first_name":   fname,
-      "middle_name":  "",
       "last_name":    lname,
-      "is_purchased": true,
-      "info" : "From " + airport + " by " + airline + " at " + flight
+      "age":          parseInt(age),
+      "gender":       gender,
+      "info": info
+   
     }
   };
-  $.ajax(root_url + '', {
+  $.ajax(root_url + 'tickets', {
     type: 'POST',
     xhrFields: {
       withCredentials: true
     },
     data: udata,
     success: function (d, textStatus, jqXHR) {
-      homePage();
+      alert("ticket created");
+      let body = $('body');
+      body.empty();
+      let navbar = '<ul> \
+      <li id = "home_btn" class = "navTag" >Home</li>\
+      <li id = "logout_btn" class = "navTag" >Logout</li>\
+      <li id = "user_info" class = "navTag" style="float:right">{}</li>\
+      </ul>\
+      <div id="mesg_div"></div>'.format(localStorage.getItem('username'));
+      body.append(navbar);
+    
+      let main = `
+      <div id='ticket-container'>
+    
+        <div id='ticketBox'>
+          <h3 id='ticketTitle'>Ticket</h3>
+    
+          <div class='ticketInfo'>
+              <p>Passenger:</p>
+              <p>{}</p>
+              <p>{}</p>
+              <p>Age: {}</p>
+              <p>Gender: {}</p>
+              <p>Aiport: {}</p>
+              <p>Airline: {}</p>
+              <p>Departure: {}</p>
+    
+          </div>
+    
+          <br>
+          <br>
+    
+        </div>
+    
+        <input type="button" id = "printBtn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
+      </div>`.format(fname,lname,age,gender,airport,airline,flight);
+    
+      body.append(main);
+    
+      localStorage.setItem('fname',fname);
+      localStorage.setItem('lname',lname);
+      localStorage.setItem('airport',airport);
+      localStorage.setItem('airline',airline);
+      localStorage.setItem('flight',flight);
+      localStorage.setItem('age',age);
+      localStorage.setItem('gender',gender);
     },
     error: () => {
-      alert('Incorrect Username or Password');
+      alert('failed to create tickets');
+      homePage();
     },
   });
 
@@ -376,6 +389,8 @@ var hoverTicket = function (){
               <p>Passenger:</p>
               <p>{}</p>
               <p>{}</p>
+              <p>Age: {}</p>
+              <p>Gender: {}</p>
               <p>Aiport: {}</p>
               <p>Airline: {}</p>
               <p>Departure: {}</p>
@@ -387,7 +402,7 @@ var hoverTicket = function (){
         </div>
     
         <input type="button" id = "printBtn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
-      </div>`.format(localStorage.getItem('fname'),localStorage.getItem('lname'),localStorage.getItem('airport'),localStorage.getItem('airline'),localStorage.getItem('flight'));
+      </div>`.format(localStorage.getItem('fname'),localStorage.getItem('lname'),localStorage.getItem('age'),localStorage.getItem('gender'), localStorage.getItem('airport'),localStorage.getItem('airline'),localStorage.getItem('flight'));
 
       $('body').append(lastTicket);
     }
@@ -449,10 +464,10 @@ window.onclick = function (event) {
       })
     })
   } else if (event.target.matches('#resultBtn')){
-    if (typeof(fname) == "undefined" || typeof(lname) == "undefined" || typeof(airline_data) == "undefined" || typeof(airport_data) == "undefined" || typeof(flight_data) == "undefined"){
+    if (typeof(fname) == "undefined" || typeof(lname) == "undefined" || typeof(airline_data) == "undefined" || typeof(age) == "undefined" || typeof(gender) == "undefined" ||typeof(airport_data) == "undefined" || typeof(flight_data) == "undefined"){
       alert("your information is not complete for ordering");
     }else {
-      resultPage(fname.val(),lname.val(), airline_data.text(),airport_data.text(),flight_data.text());
+      resultPage(fname.val(),lname.val(), age.val(), gender.val(),airline_data.text(),airport_data.text(),flight_data.text());
 
     }
   } else {
