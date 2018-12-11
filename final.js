@@ -156,11 +156,13 @@ var homePage = function () {
 
   </div>
   </div>
+  <div id = "airplaneFilter"></div>
+  <div id = "airportFilter"></div>
+  <div id = "filghtFilter"></div>
   <button onclick = "resultPage()" id = "resultBtn">Get Ticket</button>
-  
   <footer>
     <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
-  </footer> `
+  </footer> `;
   
   body.append(main);
   if (navigator.geolocation) {
@@ -185,7 +187,8 @@ var homePage = function () {
 
 }
 
-var resultPage = function () {
+var resultPage = function (airline,airport,flight) {
+  console.log(airline);
   let body = $('body');
   body.empty();
   let navbar = '<ul> \
@@ -204,9 +207,9 @@ var resultPage = function () {
 
       <div class='ticketInfo'>
           <p>Passenger: PLACEHOLDER FOR NAME</p>
-          <p>Aiport: airport_data.text()</p>
-          <p>Airline: PLACEHOLDER FOR AIRLINE</p>
-          <p>Airline: PLACEHOLDER FOR DEPARTURE</p>
+          <p>Aiport: {}</p>
+          <p>Airline: {}</p>
+          <p>Departure: {}</p>
       </div>
 
       <br>
@@ -215,7 +218,7 @@ var resultPage = function () {
     </div>
 
     <input type="button" id = "printBtn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
-  </div>`;
+  </div>`.format(airport,airline,flight);
 
   body.append(main);
 
@@ -348,10 +351,10 @@ window.onclick = function (event) {
   } else if (event.target.matches('.ticketEl')) {
     let selected = $(event.target).text()
     console.log(selected);
-    ticket_data = $('#ticketFilter');
-    ticket_data.remove();
-    ticket_data = $('<div id = "ticketFilter">{}</div>'.format(selected));
-    $('body').append(ticket_data);
+    flight_data = $('#ticketFilter');
+    flight_data.remove();
+    flight_data = $('<div id = "flightFilter">{}</div>'.format(selected));
+    $('body').append(flight_data);
     console.log("element ap clicked");
   } else if (event.target.matches('#search')) {
     $('#search').keydown(function (event) {
@@ -371,6 +374,8 @@ window.onclick = function (event) {
           }
       })
     })
+  } else if (event.target.matches('#resultBtn')){
+    resultPage(airline_data.text(),airport_data.text(),flight_data.text());
   } else {
     let dropdowns = document.getElementsByClassName("dropdown-content");
     let i;
