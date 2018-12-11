@@ -90,6 +90,8 @@ var passwordPage = function () {
 
       <div class = 'loginBtns'>
           <button id = 'changeUser' onclick="changeUser()">Change Password</button>
+          <button onclick="loginPage()">Back to Login</button>
+
       </div>
 
       <br>
