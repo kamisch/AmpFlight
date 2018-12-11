@@ -94,7 +94,7 @@ h1 {
 	box-shadow: 2px 2px rgb(90, 89, 89);
 }
 
-#createUser {
+#changeUser {
 	color: white;
     border-radius: 12px;
 	background-color: #EF6461;
@@ -102,7 +102,7 @@ h1 {
 	height: 30px;
 }
 
-#createUser:hover {
+#changeUser:hover {
     background-color: white;
 	color: black;
 	border: thin solid black;
