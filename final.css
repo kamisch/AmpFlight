@@ -38,6 +38,12 @@ body{
 	height: 500px;
 }
 
+#printBtn {
+	position: absolute;
+	bottom: 0;
+	float: left;
+}
+
 #ticketTitle {
 	text-shadow: 1px 1px;
 }

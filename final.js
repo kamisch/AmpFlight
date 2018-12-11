@@ -209,14 +209,43 @@ var resultPage = function (filter, text) {
       <br>
 
     </div>
+
+    <input type="button" id = 'printBtn' value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
   </div>`;
 
   body.append(main);
 
 
   tabClick();
-
 }
+
+
+function printerDiv(divID) {
+  //Get the HTML of div
+  
+  var divElements = document.getElementById(divID).innerHTML;
+  
+  //Get the HTML of whole page
+  var oldPage = document.body.innerHTML;
+  
+  //Reset the pages HTML with divs HTML only
+  
+       document.body.innerHTML = 
+  
+       "<html><head><title></title></head><body>" + 
+       divElements + "</body>";
+  
+  
+  
+  //Print Page
+  window.print();
+  
+  //Restore orignal HTML
+  document.body.innerHTML = oldPage;
+  
+  }
+
+
 var tabClick = function () {
 
   $('li').click(function () {
