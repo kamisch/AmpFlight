@@ -21,6 +21,21 @@ body{
 	text-shadow: 1px 1px;
 }
 
+
+#ticketBox {
+	background-color: white;
+	border: 6px solid black;
+	margin-right: 40%;
+	margin-left: 40%;
+	text-align: center;
+	position: relative;
+	box-shadow: 5px 5px rgb(90, 89, 89);
+}
+
+#ticketTitle {
+	text-shadow: 1px 1px;
+}
+
 #header{
 	color:white;
 	width:100%; 

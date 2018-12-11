@@ -192,16 +192,23 @@ var resultPage = function (filter, text) {
   body.append(navbar);
 
   let main = `
-  <div id = "mp">
-  <input type = 'text' placeholder= 'Your current location?' id = 'address'>
-  <p>google map will be displayed here</p>
-  <label>Calculate estimated travel time</label><button id = "calculate_t">Go</button>
-  </div>
+  <div id='ticket-container'>
 
-  <div id = "searchResults">
-  <p>placeholder, but later this will get populated by search and filtering results</p>
-  </div>
-  `;
+    <div id='ticketBox'>
+      <h3 id='ticketTitle'>Login</h3><br>
+
+      <div class='ticketInfo'>
+          <p>Passenger: PLACEHOLDER FOR NAME</p>
+          <p>Aiport: PLACEHOLDER FOR AIRPORT</p>
+          <p>Airline: PLACEHOLDER FOR AIRLINE</p>
+          <p>Airline: PLACEHOLDER FOR DEPARTURE</p>
+      </div>
+
+      <br>
+      <br>
+
+    </div>
+  </div>`;
 
   body.append(main);
 
