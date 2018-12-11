@@ -21,6 +21,19 @@ body{
 	text-shadow: 1px 1px;
 }
 
+#fname {
+	border: none;
+	border-bottom: 2px solid black;
+	width: 10%;
+	height: 30px;
+}
+
+#lname {
+	border: none;
+	border-bottom: 2px solid black;
+	width: 10%;
+	height: 30px;
+}
 
 #ticketBox {
 	background: white url('https://img.icons8.com/ios/100/000000/barcode.png') bottom center no-repeat;
@@ -38,6 +51,8 @@ body{
 	overflow-y: scroll;
 	height: 550px;
 } 
+
+
 
 #printBtn {
 	color: white;
@@ -207,7 +222,7 @@ footer{
 	position: absolute;
 	color:#E0DFD5;
 	bottom: 0;
-	font-size: 50%
+	font-size: 35%
 }
 
 /* for dropdown */
