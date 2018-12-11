@@ -39,9 +39,38 @@ body{
 }
 
 #printBtn {
-	position: absolute;
+	color: white;
+    border-radius: 12px;
+	background-color: black;
+	width: 10%;
+	height: 30px;
 	bottom: 0;
-	float: left;
+	float: right;
+}
+
+#resultBtn {
+	color: white;
+    border-radius: 12px;
+	background-color: black;
+	width: 10%;
+	height: 30px;
+	bottom: 0;
+	float: right;
+}
+
+
+#printBtn:hover {
+	color: #EF6461;
+	background-color: white;
+	border: thin solid black;
+	box-shadow: 2px 2px rgb(90, 89, 89);
+}
+
+#resultBtn:hover {
+	color: #EF6461;
+	background-color: white;
+	border: thin solid black;
+	box-shadow: 2px 2px rgb(90, 89, 89);
 }
 
 #ticketTitle {
