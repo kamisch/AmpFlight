@@ -188,12 +188,14 @@ var homePage = function () {
 
   fname =  $("<input type = 'text' placeholder= 'first name' id = 'fname'>");
   lname = $("<input type = 'text' placeholder= 'last name' id = 'lname'>");
-  age = $("<input type = 'text' placeholder= 'last name' id = 'lname'>");
-  gender = $("<input type = 'text' placeholder= 'last name' id = 'lname'>");
+  age = $("<input type = 'text' placeholder= 'age' id = 'age'>");
+  gender = $("<input type = 'text' placeholder= 'gender' id = 'gender'>");
 
 
   body.append(fname);
   body.append(lname);
+  body.append(age);
+  body.append(gender);
   hoverTicket();
   tabClick();
 
@@ -266,6 +268,8 @@ var resultPage = function (fname,lname,age,gender,airline,airport,flight) {
       localStorage.setItem('flight',flight);
       localStorage.setItem('age',age);
       localStorage.setItem('gender',gender);
+      hoverTicket();
+      tabClick();
     },
     error: () => {
       alert('failed to create tickets');
@@ -273,8 +277,7 @@ var resultPage = function (fname,lname,age,gender,airline,airport,flight) {
     },
   });
 
-  hoverTicket();
-  tabClick();
+
 }
 
 
