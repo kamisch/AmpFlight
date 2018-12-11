@@ -158,7 +158,7 @@ var homePage = function () {
   </div>
   <div id = "airplaneFilter"></div>
   <div id = "airportFilter"></div>
-  <div id = "filghtFilter"></div>
+  <div id = "flightFilter"></div>
   <button onclick = "resultPage()" id = "resultBtn">Get Ticket</button>
   <footer>
     <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>

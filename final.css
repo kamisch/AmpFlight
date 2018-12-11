@@ -254,18 +254,18 @@ footer{
 
  #airlineFilter {
 	color: white;
-	border-bottom: thin solid black;
+	border-top: thin solid black;
  }
 
  #airportFilter {
 	color: white;
-	border-bottom: thin solid black;
+	border-top: thin solid black;
  }
 
- #flightFilter {
+#flightFilter {
 	color: white;
-	border-bottom: thin solid black;
- }
+	border-top: thin solid black;
+ } 
 
  #airlineFilter:hover {
 	color: black;
