@@ -354,11 +354,21 @@ window.onclick = function (event) {
   } else if (event.target.matches('.ticketEl')) {
     console.log("element ap clicked");
   } else if (event.target.matches('#search')) {
-    $('#search').keyup(function (event) {
-      if (event.keyCode === 13) {
-        let filterData = '';
-        resultPage(filterData, $('#search').val());
-      }
+    $('#search').keydown(function (event) {
+      // if (event.keyCode === 13) {
+        $(".dropdownEl").each(function(){
+          let dropdownText = $(this).text().toLowerCase();
+          let searchText = $('#search').val().toLowerCase();
+          if($("#search").val() === "" ){
+              $(this).show();
+          } else if (dropdownText.includes(searchText)){
+            console.log($(this).text());
+            console.log($('#search').val());
+              $(this).show();
+          } else{
+              $(this).hide();
+          }
+      })
     })
   } else {
     let dropdowns = document.getElementsByClassName("dropdown-content");
