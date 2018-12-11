@@ -189,6 +189,7 @@ var homePage = function () {
 
   body.append(fname);
   body.append(lname);
+  hoverTicket();
   tabClick();
 
 }
@@ -230,7 +231,13 @@ var resultPage = function (fname,lname,airline,airport,flight) {
 
   body.append(main);
 
+  localStorage.setItem('fname',fname);
+  localStorage.setItem('lname',lname);
+  localStorage.setItem('airport',airport);
+  localStorage.setItem('airline',airline);
+  localStorage.setItem('flight',flight);
 
+  hoverTicket();
   tabClick();
 }
 
@@ -327,12 +334,48 @@ for(i=0; i<24; i++) {
       alert('Incorrect username or password');
     },
   });
+}
+var hoverTicket = function (){
+  $("#user_info").hover(function(){
+    
+     // only need to check one because they should be all null or all exist
+     if (typeof(localStorage.getItem('fname')) === null ){
+      
+    }else {
+      console.log('last ticket touched');
+      let lastTicket = `
+      <div id='lastticket-container'>
+    
+        <div id='ticketBox'>
+          <h3 id='ticketTitle'>Ticket</h3>
+    
+          <div class='ticketInfo'>
+              <p>Passenger:</p>
+              <p>{}</p>
+              <p>{}</p>
+              <p>Aiport: {}</p>
+              <p>Airline: {}</p>
+              <p>Departure: {}</p>
+          </div>
+    
+          <br>
+          <br>
+    
+        </div>
+    
+        <input type="button" id = "printBtn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
+      </div>`.format(localStorage.getItem('fname'),localStorage.getItem('lname'),localStorage.getItem('airport'),localStorage.getItem('airline'),localStorage.getItem('flight'));
 
-
-
-
+      $('body').append(lastTicket);
+    }
+   
+}, function (){
+  $('#lastticket-container').remove();
+});
+   
 }
 
+  
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (event) {
   if (event.target.matches('.dropbtn')) {
