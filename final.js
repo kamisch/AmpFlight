@@ -156,7 +156,7 @@ var homePage = function () {
 
   </div>
   </div>
-  <button onclick = "resultPage()" id = "resultBtn" class = "btn">Get Ticket</button>
+  <button onclick = "resultPage()" id = "resultBtn">Get Ticket</button>
   
   <footer>
     <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
@@ -214,7 +214,7 @@ var resultPage = function () {
 
     </div>
 
-    <input type="button" id = 'printBtn' class = "btn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
+    <input type="button" id = 'printBtn' value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
   </div>`;
 
   body.append(main);
