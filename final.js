@@ -31,11 +31,10 @@ var logingin = function () {
     },
     data: udata,
     success: function (d, textStatus, jqXHR) {
-      // alert("Hello There");
       homePage();
     },
     error: () => {
-      alert('Incorrect username or password');
+      alert('Incorrect Username or Password');
     },
   });
 }
@@ -63,11 +62,11 @@ var changeUser = function () {
     },
     data: udata,
     success: function (d, textStatus, jqXHR) {
-      alert("password changed");
+      alert("Password Successfully Changed");
       loginPage();
     },
     error: () => {
-      alert('error');
+      alert('Error');
     },
   });
 }
