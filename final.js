@@ -144,7 +144,6 @@ var homePage = function () {
   <div id = "home-container">
   <div>
     <input type = 'text' placeholder= 'Where do you want to go?' id = 'search'>
-    <br>
   </div>
 
   <div id = 'dropdowns'>
