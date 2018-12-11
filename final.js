@@ -186,10 +186,10 @@ var homePage = function () {
   $('#header').fadeIn(1500);
   $('#header').fadeOut(1500);
 
-  fname =  $("<input type = 'text' placeholder= 'first name' id = 'fname'>");
-  lname = $("<input type = 'text' placeholder= 'last name' id = 'lname'>");
-  age = $("<input type = 'text' placeholder= 'age' id = 'age'>");
-  gender = $("<input type = 'text' placeholder= 'gender' id = 'gender'>");
+  fname =  $("<input type = 'text' placeholder= 'First name' id = 'fname'>");
+  lname = $("<input type = 'text' placeholder= 'Last name' id = 'lname'>");
+  age = $("<input type = 'text' placeholder= 'Age' id = 'age'>");
+  gender = $("<input type = 'text' placeholder= 'Gender' id = 'gender'>");
 
 
   body.append(fname);
@@ -222,7 +222,7 @@ var resultPage = function (fname,lname,age,gender,airline,airport,flight) {
     },
     data: udata,
     success: function (d, textStatus, jqXHR) {
-      alert("ticket created");
+      alert("Ticket Created");
       let body = $('body');
       body.empty();
       let navbar = '<ul> \
@@ -272,7 +272,7 @@ var resultPage = function (fname,lname,age,gender,airline,airport,flight) {
       tabClick();
     },
     error: () => {
-      alert('failed to create tickets');
+      alert('Failed to Create Ticket');
       homePage();
     },
   });
@@ -404,7 +404,6 @@ var hoverTicket = function (){
     
         </div>
     
-        <input type="button" id = "printBtn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
       </div>`.format(localStorage.getItem('fname'),localStorage.getItem('lname'),localStorage.getItem('age'),localStorage.getItem('gender'), localStorage.getItem('airport'),localStorage.getItem('airline'),localStorage.getItem('flight'));
 
       $('body').append(lastTicket);

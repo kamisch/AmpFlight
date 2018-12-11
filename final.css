@@ -35,6 +35,20 @@ body{
 	height: 30px;
 }
 
+#age {
+	border: none;
+	border-bottom: 2px solid black;
+	width: 10%;
+	height: 30px;
+}
+
+#gender {
+	border: none;
+	border-bottom: 2px solid black;
+	width: 10%;
+	height: 30px;
+}
+
 #ticketBox {
 	background: white url('https://img.icons8.com/ios/100/000000/barcode.png') bottom center no-repeat;
 	border: 6px solid black;
@@ -43,7 +57,7 @@ body{
 	margin-left: 30%;
 	margin-bottom: 5%;
 	height: 75%;
-	font-size: 60%;
+	font-size: 45%;
 	text-align: center;
 	position: relative;
 	box-shadow: 5px 5px rgb(90, 89, 89);
@@ -54,9 +68,7 @@ body{
 	height: 600px;
 } 
 
-#lastticket-container {
 
-}
 
 
 
