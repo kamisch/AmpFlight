@@ -300,19 +300,19 @@ var tabClick = function () {
   });
 }
 function getWeather(position) {
-  // weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&APPID=55a78b6eb9a4499b196c6e193756059f'.format(Math.round(position.coords.latitude),Math.round(position.coords.longitude));
-  //   $.ajax(weatherUrl, {
-  //     type: 'GET',
-  //     crossDomain: true,
-  //     success: (response) => {
-  //       //gets the main weather
-  //       weather = response['weather'][0]['main'];
-  //       console.log(weather);
-  //       $("#header").append($("<h3>Today's weather is {} </h3>".format(weather)));
+  weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&APPID=55a78b6eb9a4499b196c6e193756059f'.format(Math.round(position.coords.latitude),Math.round(position.coords.longitude));
+    $.ajax(weatherUrl, {
+      type: 'GET',
+      crossDomain: true,
+      success: (response) => {
+        //gets the main weather
+        weather = response['weather'][0]['main'];
+        console.log(weather);
+        $("#header").append($("<h3>Today's weather is {} </h3>".format(weather)));
         
-  //       console.log(response);
-  //     }
-  //   })
+        console.log(response);
+      }
+    })
   
 }
 /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
