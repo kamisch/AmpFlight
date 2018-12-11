@@ -26,8 +26,9 @@ body{
 	background: white url('https://img.icons8.com/ios/100/000000/barcode.png') bottom center no-repeat;
 	border: 6px solid black;
 	margin-top: 5%;
-	margin-right: 40%;
-	margin-left: 40%;
+	margin-right: 35%;
+	margin-left: 35%;
+	margin-bottom: 5%;
 	text-align: center;
 	position: relative;
 	box-shadow: 5px 5px rgb(90, 89, 89);
@@ -35,8 +36,8 @@ body{
 
 #ticket-container {
 	overflow-y: scroll;
-	height: 500px;
-}
+	height: 550px;
+} 
 
 #printBtn {
 	color: white;
@@ -254,27 +255,25 @@ footer{
 
  #airlineFilter {
 	color: white;
-	border-top: thin solid black;
+	border-bottom: thin solid black;
  }
 
  #airportFilter {
 	color: white;
-	border-top: thin solid black;
+	border-bottom: thin solid black;
  }
 
 #flightFilter {
 	color: white;
-	border-top: thin solid black;
+	border-bottom: thin solid black;
  } 
 
  #airlineFilter:hover {
 	color: black;
-	border-bottom: thin solid black;
  }
 
  #airportFilter:hover {
 	color: black;
-	border-bottom: thin solid black;
  }
 
  #flightFilter:hover {
