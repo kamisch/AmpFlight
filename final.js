@@ -204,7 +204,7 @@ var resultPage = function () {
 
       <div class='ticketInfo'>
           <p>Passenger: PLACEHOLDER FOR NAME</p>
-          <p>Aiport: PLACEHOLDER FOR AIRPORT</p>
+          <p>Aiport: airport_data.text()</p>
           <p>Airline: PLACEHOLDER FOR AIRLINE</p>
           <p>Airline: PLACEHOLDER FOR DEPARTURE</p>
       </div>
