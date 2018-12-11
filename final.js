@@ -176,24 +176,14 @@ var resultPage = function (filter, text) {
   let address = $('#address').val();
   let destination = text;
 
-  let gUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyAEpzx08RL5PLViQKt_7JSWKrT274B0nzg'.format();
-  var distanceService = new google.maps.DistanceMatrixService();
-    distanceService.getDistanceMatrix({
-        origins: ['Istanbul, Turkey'],
-        destinations: ['Ankara, Turkey'],
-        travelMode: google.maps.TravelMode.DRIVING,
-        unitSystem: google.maps.UnitSystem.METRIC,
-        durationInTraffic: true,
-        avoidHighways: false,
-        avoidTolls: false
-    },
-    function (response, status) {
-        if (status !== google.maps.DistanceMatrixStatus.OK) {
-            console.log('Error:', status);
-        } else {
-            console.log(response);
-        }
-    });
+  let gUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=';
+  $.ajax({
+    url : gUrl,
+    type: 'GET',
+    success : function(data){
+    console.log(data);
+    }
+});
   tabClick();
 
 }
