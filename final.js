@@ -156,6 +156,8 @@ var homePage = function () {
 
   </div>
   </div>
+  <button onclick = "resultPage()" id = "resultBtn" class = "btn">Get Ticket</button>
+  
   <footer>
     <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
   </footer> `
@@ -177,12 +179,13 @@ var homePage = function () {
 
   $('#header').fadeIn(1500);
   $('#header').fadeOut(1500);
+
   
   tabClick();
 
 }
 
-var resultPage = function (filter, text) {
+var resultPage = function () {
   let body = $('body');
   body.empty();
   let navbar = '<ul> \
@@ -211,7 +214,7 @@ var resultPage = function (filter, text) {
 
     </div>
 
-    <input type="button" id = 'printBtn' value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
+    <input type="button" id = 'printBtn' class = "btn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
   </div>`;
 
   body.append(main);
@@ -221,30 +224,10 @@ var resultPage = function (filter, text) {
 }
 
 
-function printerDiv(divID) {
-  //Get the HTML of div
-  
-  var divElements = document.getElementById(divID).innerHTML;
-  
-  //Get the HTML of whole page
-  var oldPage = document.body.innerHTML;
-  
-  //Reset the pages HTML with divs HTML only
-  
-       document.body.innerHTML = 
-  
-       "<html><head><title></title></head><body>" + 
-       divElements + "</body>";
-  
-  
-  
+function printerDiv(divID) {  
   //Print Page
   window.print();
-  
-  //Restore orignal HTML
-  document.body.innerHTML = oldPage;
-  
-  }
+}
 
 
 var tabClick = function () {
