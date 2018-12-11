@@ -237,6 +237,29 @@ var resultPage = function (fname,lname,airline,airport,flight) {
   localStorage.setItem('airline',airline);
   localStorage.setItem('flight',flight);
 
+  let udata = {
+    "ticket": {
+      "first_name":   fname,
+      "middle_name":  "",
+      "last_name":    lname,
+      "is_purchased": true,
+      "info" : "From " + airport + " by " + airline + " at " + flight
+    }
+  };
+  $.ajax(root_url + '', {
+    type: 'POST',
+    xhrFields: {
+      withCredentials: true
+    },
+    data: udata,
+    success: function (d, textStatus, jqXHR) {
+      homePage();
+    },
+    error: () => {
+      alert('Incorrect Username or Password');
+    },
+  });
+
   hoverTicket();
   tabClick();
 }
