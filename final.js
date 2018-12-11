@@ -214,7 +214,7 @@ var resultPage = function () {
 
     </div>
 
-    <input type="button" id = 'printBtn' value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
+    <input type="button" id = "printBtn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
   </div>`;
 
   body.append(main);
