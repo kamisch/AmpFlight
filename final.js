@@ -278,8 +278,8 @@ function dropdownFunction(keyword) {
         nameArr.sort();
         nameArr.forEach(element => {
         $('#dropdown1').append($('<li class = "dropdownEl airlineEl">{}</li>'.format(element)));
-        $('#search').fadeIn(1000);
         })
+        $('#search').fadeIn(1000);
 
       } else if (keyword == "airports") {
         $('#dropdown1').empty();
@@ -293,22 +293,23 @@ function dropdownFunction(keyword) {
         nameArr.sort();
         nameArr.forEach(element => {
         $('#dropdown1').append($('<li class = "dropdownEl airportEl">{}</li>'.format(element)));
-        $('#search').fadeIn(1000);
         })
+        $('#search').fadeIn(1000);
+
       } else if (keyword == "flights") {
         $('#dropdown1').empty();
-        let departArr = [];
-        response.forEach(element => {
-          let departing = element['departs_at'];
-          if (!departArr.includes(departing)) {
-            departArr.push(departing);
-          }
-        });
-        departArr.sort();
-        departArr.forEach(element => {
+        // let departArr = [];
+        let arr = [], i, j;
+for(i=0; i<24; i++) {
+  for(j=0; j<2; j++) {
+    arr.push(i + ":" + (j===0 ? "00" : 30*j) );
+  }
+}
+        arr.forEach(element => {
         $('#dropdown1').append($('<li class = "dropdownEl ticketEl">{}</li>'.format(element)));
-        $('#search').fadeIn(1000);
         })
+        $('#search').fadeIn(1000);
+
       } 
     },
     error: () => {
@@ -345,6 +346,12 @@ window.onclick = function (event) {
     airport_data = $('<div id = "airportFilter">{}</div>'.format(selected));
     $('body').append(airport_data);
   } else if (event.target.matches('.ticketEl')) {
+    let selected = $(event.target).text()
+    console.log(selected);
+    ticket_data = $('#ticketFilter');
+    ticket_data.remove();
+    ticket_data = $('<div id = "ticketFilter">{}</div>'.format(selected));
+    $('body').append(ticket_data);
     console.log("element ap clicked");
   } else if (event.target.matches('#search')) {
     $('#search').keydown(function (event) {
