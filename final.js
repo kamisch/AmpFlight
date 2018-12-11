@@ -40,25 +40,30 @@ var logingin = function () {
   });
 }
 
-var createUser = function () {
+var changeUser = function () {
   let user = $('#user').val();
-  let pass = $('#pass').val();
+  let opass = $('#oldpass').val();
+  let npass = $('#newpass').val();
+
   console.log(user);
-  console.log(pass);
+  console.log(opass);
+  console.log(npass);
+
   let udata = {
     "user": {
       "username": user,
-      "password": pass
+      "old_password": opass,
+      "new_password": npass
     }
   };
-  $.ajax(root_url + 'users', {
-    type: 'POST',
+  $.ajax(root_url + 'passwords', {
+    type: 'PUT',
     xhrFields: {
       withCredentials: true
     },
     data: udata,
     success: function (d, textStatus, jqXHR) {
-      alert("userCreated");
+      alert("password changed");
       loginPage();
     },
     error: () => {
@@ -66,7 +71,33 @@ var createUser = function () {
     },
   });
 }
+var passwordPage = function () {
+  let body = $('body');
 
+  body.empty();
+  let mainHtml = ` <div id = 'login-container'>
+  <div id = 'loginBox'>
+      <h3 id = 'loginTitle'>Login</h3><br>
+  
+      <div class = 'authentication'>
+          <input type = "text" id = "user" placeholder = "Username"><br>
+          <input type = "password" id = "oldpass" placeholder = "Old Password"><br>
+          <input type = "password" id = "newpass" placeholder = "New Password"><br>
+
+      </div>
+  
+      <br> 
+
+      <div class = 'loginBtns'>
+          <button id = 'changeUser' onclick="changeUser()">Change Password</button>
+      </div>
+
+      <br>
+      <br>
+  </div>
+</div> `
+  body.append(mainHtml);
+}
 var loginPage = function () {
   let body = $('body');
 
@@ -84,7 +115,7 @@ var loginPage = function () {
 
       <div class = 'loginBtns'>
           <button id = 'login' onclick="logingin()">Login</button><br>
-          <button id = 'createUser' onclick="createUser()">New User</button>
+          <button id = 'changeUser' onclick="changeUser()">Change Password</button>
       </div>
 
       <br>
