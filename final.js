@@ -323,7 +323,8 @@ window.onclick = function (event) {
         document.getElementById("search").classList.remove('show');
       }
     }
+    $('#search').fadeOut(1000);
   }
-  $('#search').fadeOut(1000);
+  
 
 };
