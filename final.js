@@ -126,13 +126,10 @@ var loginPage = function () {
 }
 
 var homePage = function () {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(getWeather);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
   let body = $('body');
   body.empty();
+
+  
   let navbar = '<ul> \
   <li id = "home_btn" class = "navTag" >Home</li>\
   <li id = "logout_btn" class = "navTag" >Logout</li>\
@@ -163,7 +160,11 @@ var homePage = function () {
   </footer> `
   
   body.append(main);
-
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getWeather);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
   // add filter buttons
   let airlines = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airlines</button>'.format("'airlines'"));
   let airports = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airports</button>'.format("'airports'"));
@@ -213,17 +214,7 @@ var resultPage = function (filter, text) {
   body.append(main);
 
   document.getElementById('searchResults').append('your destination ' + text);
-  let address = $('#address').val();
-  let destination = text;
 
-  let gUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=';
-  $.ajax({
-    url : gUrl,
-    type: 'GET',
-    success : function(data){
-    console.log(data);
-    }
-});
   tabClick();
 
 }
@@ -240,12 +231,16 @@ var tabClick = function () {
   });
 }
 function getWeather(position) {
-  weatherUrl = 'api.openweathermap.org/data/2.5/weather?lat={}&lon={}&APPID=55a78b6eb9a4499b196c6e193756059f'.format(Math.round(position.coords.latitude),Math.round(position.coords.longitude));
+  weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&APPID=55a78b6eb9a4499b196c6e193756059f'.format(Math.round(position.coords.latitude),Math.round(position.coords.longitude));
   console.log(weatherUrl);
   $.ajax(weatherUrl, {
     type: 'GET',
     crossDomain: true,
     success: (response) => {
+      //gets the main weather
+      weather = response['weather'][0]['main'];
+      console.log(weather);
+      $("#header").append($("<h3>Today's weather is {} </h3>".format(weather)));
       console.log(response);
     }
   })
