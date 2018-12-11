@@ -39,9 +39,11 @@ body{
 	background: white url('https://img.icons8.com/ios/100/000000/barcode.png') bottom center no-repeat;
 	border: 6px solid black;
 	margin-top: 8%;
-	margin-right: 35%;
-	margin-left: 35%;
+	margin-right: 30%;
+	margin-left: 30%;
 	margin-bottom: 5%;
+	height: 75%;
+	font-size: 60%;
 	text-align: center;
 	position: relative;
 	box-shadow: 5px 5px rgb(90, 89, 89);
