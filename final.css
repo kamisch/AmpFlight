@@ -249,5 +249,34 @@ footer{
  }
  
  #dropdowns a:hover {background-color: #ddd;}
+
+ #airlineFilter {
+	color: white;
+	border-bottom: thin solid black;
+ }
+
+ #airportFilter {
+	 color: white;
+	 border-bottom: thin solid black;
+ }
+
+ #ticketFilter {
+	 color: white;
+	 border-bottom: thin solid black;
+ }
+
+ #airlineFilter:hover {
+	color: black;
+	border-bottom: thin solid black;
+ }
+
+ #airportFilter:filter {
+	 color: black;
+	 border-bottom: thin solid black;
+ }
+
+ #ticketFilter:hover {
+	color: black;
+ }
  
  .show {display: block;}
