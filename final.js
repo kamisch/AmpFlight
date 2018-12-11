@@ -203,7 +203,7 @@ var resultPage = function (airline,airport,flight) {
   <div id='ticket-container'>
 
     <div id='ticketBox'>
-      <h3 id='ticketTitle'>Ticket</h3><br>
+      <h3 id='ticketTitle'>Ticket</h3>
 
       <div class='ticketInfo'>
           <p>Passenger: PLACEHOLDER FOR NAME</p>
