@@ -126,6 +126,11 @@ var loginPage = function () {
 }
 
 var homePage = function () {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getWeather);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
   let body = $('body');
   body.empty();
   let navbar = '<ul> \
@@ -227,7 +232,17 @@ var tabClick = function () {
     }
   });
 }
-
+function getWeather(position) {
+  weatherUrl = 'api.openweathermap.org/data/2.5/weather?lat={}&lon={}&APPID=55a78b6eb9a4499b196c6e193756059f'.format(Math.round(position.coords.latitude),Math.round(position.coords.longitude));
+  console.log(weatherUrl);
+  $.ajax(weatherUrl, {
+    type: 'GET',
+    crossDomain: true,
+    success: (response) => {
+      console.log(response);
+    }
+  })
+}
 /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
 function dropdownFunction(keyword) {
   $.ajax(root_url + keyword, {
