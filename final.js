@@ -2,6 +2,8 @@ var root_url = "http://comp426.cs.unc.edu:3001/";
 var airline_data;
 var airport_data;
 var flight_data;
+var fname;
+var lname;
 // var ticket_data;
 
 
@@ -156,13 +158,13 @@ var homePage = function () {
 
   </div>
   </div>
-  <div id = "airplaneFilter"></div>
-  <div id = "airportFilter"></div>
-  <div id = "flightFilter"></div>
-  <button onclick = "resultPage()" id = "resultBtn">Get Ticket</button>
+  <button id = "resultBtn">Get Ticket</button>
   <footer>
     <p id = 'credit'> AMPFlight is trademarked by jeffcc and chengtw</p>
-  </footer> `;
+  </footer>   
+  <div id = "airplaneFilter"></div>
+  <div id = "airportFilter"></div>
+  <div id = "flightFilter"></div>`;
   
   body.append(main);
   if (navigator.geolocation) {
@@ -182,13 +184,17 @@ var homePage = function () {
   $('#header').fadeIn(1500);
   $('#header').fadeOut(1500);
 
-  
+  fname =  $("<input type = 'text' placeholder= 'first name' id = 'fname'>");
+  lname = $("<input type = 'text' placeholder= 'last name' id = 'lname'>");
+
+  body.append(fname);
+  body.append(lname);
   tabClick();
 
 }
 
-var resultPage = function (airline,airport,flight) {
-  console.log(airline);
+var resultPage = function (fname,lname,airline,airport,flight) {
+  console.log(fname,lname,airline,airport,flight);
   let body = $('body');
   body.empty();
   let navbar = '<ul> \
@@ -206,7 +212,9 @@ var resultPage = function (airline,airport,flight) {
       <h3 id='ticketTitle'>Ticket</h3>
 
       <div class='ticketInfo'>
-          <p>Passenger: PLACEHOLDER FOR NAME</p>
+          <p>Passenger:</p>
+          <p>{}</p>
+          <p>{}</p>
           <p>Aiport: {}</p>
           <p>Airline: {}</p>
           <p>Departure: {}</p>
@@ -218,7 +226,7 @@ var resultPage = function (airline,airport,flight) {
     </div>
 
     <input type="button" id = "printBtn" value="Print This Content" onclick="javascript:printerDiv('printablediv')" />
-  </div>`.format(airport,airline,flight);
+  </div>`.format(fname,lname,airport,airline,flight);
 
   body.append(main);
 
@@ -375,7 +383,12 @@ window.onclick = function (event) {
       })
     })
   } else if (event.target.matches('#resultBtn')){
-    resultPage(airline_data.text(),airport_data.text(),flight_data.text());
+    if (typeof(fname) == "undefined" || typeof(lname) == "undefined" || typeof(airline_data) == "undefined" || typeof(airport_data) == "undefined" || typeof(flight_data) == "undefined"){
+      alert("your information is not complete for ordering");
+    }else {
+      resultPage(fname.val(),lname.val(), airline_data.text(),airport_data.text(),flight_data.text());
+
+    }
   } else {
     let dropdowns = document.getElementsByClassName("dropdown-content");
     let i;
