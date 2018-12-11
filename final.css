@@ -256,13 +256,13 @@ footer{
  }
 
  #airportFilter {
-	 color: white;
-	 border-bottom: thin solid black;
+	color: white;
+	border-bottom: thin solid black;
  }
 
  #ticketFilter {
-	 color: white;
-	 border-bottom: thin solid black;
+	color: white;
+	border-bottom: thin solid black;
  }
 
  #airlineFilter:hover {
@@ -270,9 +270,9 @@ footer{
 	border-bottom: thin solid black;
  }
 
- #airportFilter:filter {
-	 color: black;
-	 border-bottom: thin solid black;
+ #airportFilter:hover {
+	color: black;
+	border-bottom: thin solid black;
  }
 
  #ticketFilter:hover {
