@@ -381,6 +381,11 @@ var hoverTicket = function (){
      if (typeof(localStorage.getItem('fname')) === null ){
       
     }else {
+      if (typeof($('#ticket-container')) === null){
+
+      }else {
+        $('#ticket-container').hide();
+      }
       console.log('last ticket touched');
       let lastTicket = `
       <div id='lastticket-container'>
@@ -411,6 +416,7 @@ var hoverTicket = function (){
    
 }, function (){
   $('#lastticket-container').remove();
+  $('#ticket-container').show();
 });
    
 }
