@@ -162,7 +162,7 @@ var homePage = function () {
   // add filter buttons
   let airlines = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airlines</button>'.format("'airlines'"));
   let airports = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Airports</button>'.format("'airports'"));
-  let flights = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Flights</button>'.format("'flights'"));
+  let flights = $('<button onclick = "dropdownFunction({})" class = "dropbtn">Departure</button>'.format("'flights'"));
 
   $('#dropdowns').append(airlines);
   $('#dropdowns').append(airports);
@@ -303,6 +303,8 @@ window.onclick = function (event) {
   } else if (event.target.matches('.airlineEl')) {
     console.log("element clicked");
   } else if (event.target.matches('.airportEl')) {
+    console.log("element ap clicked");
+  } else if (event.target.matches('.ticketEl')) {
     console.log("element ap clicked");
   } else if (event.target.matches('#search')) {
     $('#search').keyup(function (event) {
