@@ -113,7 +113,8 @@ h1 {
     background-color: #E8E9EB;
 	padding: 12px 20px;
 	width: 80%;
-    margin:0 10%;
+	margin: 10%;
+	display: none;
 	/* background-image: url('searchicon.png'); */
 }
 

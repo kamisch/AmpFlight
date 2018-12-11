@@ -91,7 +91,6 @@ var passwordPage = function () {
       <div class = 'loginBtns'>
           <button class = "btn" onclick="changeUser()">Change Password</button>
           <button class = "btn" onclick="loginPage()">Back to Login</button>
-
       </div>
 
       <br>
@@ -295,6 +294,7 @@ window.onclick = function (event) {
     let menu = document.getElementById("dropdown1");
     if (!menu.classList.contains('show')) {
       menu.classList.toggle('show');
+      document.getElementById("search").classList.toggle('show');
     }
 
   } else if (event.target.matches('.airlineEl')) {
@@ -315,6 +315,9 @@ window.onclick = function (event) {
       let openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
         openDropdown.classList.remove('show');
+      }
+      if (document.getElementById("search").classList.contains('show')){
+        document.getElementById("search").classList.remove('show');
       }
     }
   }
