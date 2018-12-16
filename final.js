@@ -300,7 +300,8 @@ var tabClick = function () {
   });
 }
 function getWeather(position) {
-  weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&APPID=55a78b6eb9a4499b196c6e193756059f'.format(Math.round(position.coords.latitude),Math.round(position.coords.longitude));
+  // removed api key
+  weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&APPID='.format(Math.round(position.coords.latitude),Math.round(position.coords.longitude));
     $.ajax(weatherUrl, {
       type: 'GET',
       crossDomain: true,
